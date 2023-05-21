@@ -1,0 +1,44 @@
+﻿@model inventorySystem.Models.tbl_purchase
+
+@{
+    ViewBag.Title = "ViewPurchase";
+}
+
+<h2>ViewPurchase</h2>
+
+<div>
+    <h4>tbl_purchase</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("PO Name")
+            
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.poName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("PO Date")
+            
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.poDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("PO Qty")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.proQty)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "UpdatePurchase", "Purchase", new { id = Model.poID }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Cancel", "DisplayPurchase", "Purchase", new { @class = "btn btn-danger" })
+</p>

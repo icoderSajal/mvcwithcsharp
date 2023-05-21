@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="inv_systemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_product">
+          <Key>
+            <PropertyRef Name="proID" />
+          </Key>
+          <Property Name="proID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="proName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="proQty" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_purchase">
+          <Key>
+            <PropertyRef Name="poID" />
+          </Key>
+          <Property Name="poID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="poName" Type="varchar" MaxLength="50" />
+          <Property Name="poDate" Type="date" />
+          <Property Name="proQty" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_sale">
+          <Key>
+            <PropertyRef Name="saleID" />
+          </Key>
+          <Property Name="saleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="saleName" Type="varchar" MaxLength="50" />
+          <Property Name="saleDate" Type="date" />
+          <Property Name="saleQty" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="inv_systemModelStoreContainer">
+          <EntitySet Name="tbl_product" EntityType="Self.tbl_product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_purchase" EntityType="Self.tbl_purchase" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_sale" EntityType="Self.tbl_sale" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="inv_systemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_product">
+          <Key>
+            <PropertyRef Name="proID" />
+          </Key>
+          <Property Name="proID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="proName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="proQty" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_purchase">
+          <Key>
+            <PropertyRef Name="poID" />
+          </Key>
+          <Property Name="poID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="poName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="poDate" Type="DateTime" Precision="0" />
+          <Property Name="proQty" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_sale">
+          <Key>
+            <PropertyRef Name="saleID" />
+          </Key>
+          <Property Name="saleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="saleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="saleDate" Type="DateTime" Precision="0" />
+          <Property Name="saleQty" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="inv_systemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_product" EntityType="Self.tbl_product" />
+          <EntitySet Name="tbl_purchase" EntityType="Self.tbl_purchase" />
+          <EntitySet Name="tbl_sale" EntityType="Self.tbl_sale" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="inv_systemModelStoreContainer" CdmEntityContainer="inv_systemEntities">
+          <EntitySetMapping Name="tbl_product">
+            <EntityTypeMapping TypeName="inv_systemModel.tbl_product">
+              <MappingFragment StoreEntitySet="tbl_product">
+                <ScalarProperty Name="proID" ColumnName="proID" />
+                <ScalarProperty Name="proName" ColumnName="proName" />
+                <ScalarProperty Name="proQty" ColumnName="proQty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_purchase">
+            <EntityTypeMapping TypeName="inv_systemModel.tbl_purchase">
+              <MappingFragment StoreEntitySet="tbl_purchase">
+                <ScalarProperty Name="poID" ColumnName="poID" />
+                <ScalarProperty Name="poName" ColumnName="poName" />
+                <ScalarProperty Name="poDate" ColumnName="poDate" />
+                <ScalarProperty Name="proQty" ColumnName="proQty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_sale">
+            <EntityTypeMapping TypeName="inv_systemModel.tbl_sale">
+              <MappingFragment StoreEntitySet="tbl_sale">
+                <ScalarProperty Name="saleID" ColumnName="saleID" />
+                <ScalarProperty Name="saleName" ColumnName="saleName" />
+                <ScalarProperty Name="saleDate" ColumnName="saleDate" />
+                <ScalarProperty Name="saleQty" ColumnName="saleQty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

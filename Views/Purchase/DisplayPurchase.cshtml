@@ -1,0 +1,52 @@
+﻿@model IEnumerable<inventorySystem.Models.tbl_purchase>
+
+@{
+    ViewBag.Title = "DisplayPurchase";
+}
+
+<h2>Purchase Order List</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    @Html.ActionLink("Create New", "CreatePurchase", "Purchase", new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr  class="success">
+        <th>
+           
+            @Html.DisplayName("PO Name")
+        </th>
+        <th>
+            @Html.DisplayName("PO Date")
+           
+        </th>
+        <th>
+            @Html.DisplayName("PO Qty")
+           
+        </th>
+        <th>
+            @Html.DisplayName("Action")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.poName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.poDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.proQty)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "UpdatePurchase", "Purchase", new { id = item.poID }, new { @class = "btn btn-primary" }) |
+
+            @Html.ActionLink("View", "ViewPurchase", "Purchase", new { id = item.poID }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "DeletePurchase", "Purchase", new { id = item.poID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
